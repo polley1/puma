@@ -38,6 +38,10 @@ module Puma
       register(:on_restart, &block)
     end
 
+    def on_lastcall(&block)
+      register(:on_lastcall, &block)
+    end
+
     def on_stopped(&block)
       register(:on_stopped, &block)
     end
@@ -48,6 +52,10 @@ module Puma
 
     def fire_on_restart!
       fire(:on_restart)
+    end
+
+    def fire_on_lastcall!
+      fire(:on_lastcall)
     end
 
     def fire_on_stopped!
